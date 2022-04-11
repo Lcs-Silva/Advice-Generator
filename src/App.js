@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import './style.css';
+import api from "./services/api";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  function App() {
+
+    const [input, setInput] = useState('');
+
+    function searchAdvice(){
+      let adviceNumber = Math.random() * 224;
+      api.get(`${adviceNumber}`).then(({data}) => {
+        setInput(data.slip.advice);
+      })
+    };
+    
+    return (
+      <div className="App">
+        <div className='container'>
+          <div className='layout-advice'>
+            <h1 className="title-advice">Hit the button below to receive a nice advice!</h1>
+            <button className='button-advice' onClick={searchAdvice}>GIVE ME A NICE ADVICE!</button>
+            <input type="text" className='input-advice' readOnly={true} placeholder='My new advice is...' value={input}/>
+          </div>
+        </div>
+      </div>
   );
+  
 }
 
 export default App;
