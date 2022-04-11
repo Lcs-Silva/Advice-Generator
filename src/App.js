@@ -17,9 +17,9 @@ import api from "./services/api";
       <div className="App">
         <div className='container'>
           <div className='layout-advice'>
-            <h1 className="title-advice">Hit the button below to receive a nice advice!</h1>
-            <button className='button-advice' onClick={searchAdvice}>GIVE ME A NICE ADVICE!</button>
-            <input type="text" className='input-advice' readOnly={true} placeholder='My new advice is...' value={input}/>
+            <h1 className="title-advice">Pressione o botão abaixo para receber um conselho legal!</h1>
+            <button className='button-advice' onClick={searchAdvice}>ME DÊ UM CONSELHO LEGAL!</button>
+            <input type="text" className='input-advice' readOnly={true} placeholder='Meu novo conselho é...' value={input}/>
           </div>
         </div>
       </div>
